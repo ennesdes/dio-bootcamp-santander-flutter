@@ -28,6 +28,7 @@ class _InputDadosIMCState extends State<InputDadosIMC> {
           children: [
             TextFormField(
               controller: height,
+              keyboardType: TextInputType.number,
               validator: (value) {
                 return controller.validateInputInt(value);
               },
@@ -46,6 +47,7 @@ class _InputDadosIMCState extends State<InputDadosIMC> {
             const SizedBox(height: 20),
             TextFormField(
               controller: weight,
+              keyboardType: TextInputType.number,
               validator: (value) {
                 return controller.validateInputDouble(value);
               },

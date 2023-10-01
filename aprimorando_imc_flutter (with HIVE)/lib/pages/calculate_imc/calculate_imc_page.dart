@@ -25,8 +25,12 @@ class CalculateIMC extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         body: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
-            const InputDadosIMC(),
+            const Expanded(
+              flex: 3,
+              child: SingleChildScrollView(child: InputDadosIMC()),
+            ),
             Obx(
               () => Visibility(
                 visible: controller.listHistoricImc.isNotEmpty,
@@ -39,7 +43,7 @@ class CalculateIMC extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(child: ListIMCPerson()),
+            Expanded(flex: 2, child: SizedBox(child: ListIMCPerson())),
           ],
         ),
       ),
