@@ -86,7 +86,7 @@ class Back4appCepRepository {
 
       homeController.isLoadingListCep.value = false;
 
-      if (response.statusCode == 201) return true;
+      if (response.statusCode == 200) return true;
 
       return false;
     } catch (e) {
