@@ -31,12 +31,6 @@ class _EditAddressModalState extends State<EditAddressModal> {
     _cityController.text = widget.address.city ?? '';
     _neighborhoodController.text = widget.address.neighborhood ?? '';
     _streetController.text = widget.address.street ?? '';
-
-    _cepController.addListener(_handleFormEdited);
-    _stateController.addListener(_handleFormEdited);
-    _cityController.addListener(_handleFormEdited);
-    _neighborhoodController.addListener(_handleFormEdited);
-    _streetController.addListener(_handleFormEdited);
   }
 
   void _handleFormEdited() {
@@ -47,7 +41,6 @@ class _EditAddressModalState extends State<EditAddressModal> {
     }
   }
 
-  // Método genérico para validação de campos de texto não vazios
   String? _validateNonEmpty(String? value, String fieldName) {
     if (value == null || value.isEmpty) {
       return 'O campo $fieldName é obrigatório.';
@@ -69,26 +62,31 @@ class _EditAddressModalState extends State<EditAddressModal> {
                 controller: _cepController,
                 decoration: const InputDecoration(labelText: 'CEP'),
                 validator: (value) => _validateNonEmpty(value, 'CEP'),
+                onChanged: (_) => _handleFormEdited,
               ),
               TextFormField(
                 controller: _stateController,
                 decoration: const InputDecoration(labelText: 'Estado'),
                 validator: (value) => _validateNonEmpty(value, 'Estado'),
+                onChanged: (_) => _handleFormEdited,
               ),
               TextFormField(
                 controller: _cityController,
                 decoration: const InputDecoration(labelText: 'Cidade'),
                 validator: (value) => _validateNonEmpty(value, 'Cidade'),
+                onChanged: (_) => _handleFormEdited,
               ),
               TextFormField(
                 controller: _neighborhoodController,
                 decoration: const InputDecoration(labelText: 'Bairro'),
                 validator: (value) => _validateNonEmpty(value, 'Bairro'),
+                onChanged: (_) => _handleFormEdited,
               ),
               TextFormField(
                 controller: _streetController,
                 decoration: const InputDecoration(labelText: 'Rua'),
                 validator: (value) => _validateNonEmpty(value, 'Rua'),
+                onChanged: (_) => _handleFormEdited,
               ),
             ],
           ),
